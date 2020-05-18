@@ -35,3 +35,11 @@ variable "domain" {
   type        = string
   default     = "statusim.net"
 }
+
+/* This policy allow Serverless to create it's resources
+ * It's a bit broad, but they are still under development. */
+variable "serverless_iam_policy" {
+  description = "AWS IAM Policy necessary for Serverless API access."
+  type        = string
+  default     = "arn:aws:iam::aws:policy/AdministratorAccess"
+}
