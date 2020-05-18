@@ -43,3 +43,9 @@ variable "serverless_iam_policy" {
   type        = string
   default     = "arn:aws:iam::aws:policy/AdministratorAccess"
 }
+
+variable "serverless_users" {
+  description = "List of Serverless users for AWS API"
+  type        = list(string)
+  default     = [ "test-user" ]
+}
