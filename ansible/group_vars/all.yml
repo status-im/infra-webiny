@@ -1,0 +1,26 @@
+---
+# general container config
+cont_state: started
+cont_recreate: false
+cont_restart: false
+
+# CloudFlare Origin certificates
+origin_certs:
+  - domain: 'status.im'
+    crt: '{{lookup("passwordstore", "cloud/Cloudflare/status.im/origin.crt returnall=true")}}'
+    key: '{{lookup("passwordstore", "cloud/Cloudflare/status.im/origin.key returnall=true")}}'
+    default: true
+
+# Root password
+bootstrap__root_pass: '{{lookup("passwordstore", "hosts/admin-pass")}}'
+
+# Consul Encryption
+consul_encryption_key: '{{lookup("passwordstore", "services/consul/encryption-key")}}'
+
+# OAuth2 provided by Google
+oauth2_proxy_port: 8090
+oauth2_proxy_image: 'statusteam/oauth2-proxy:2.2.0'
+
+dns_domain: statusim.net
+
+consul_catalog_url: 'http://localhost:8500/v1/catalog'
