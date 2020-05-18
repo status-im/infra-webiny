@@ -17,14 +17,17 @@ variable "cloudflare_account" {
 
 variable "aws_access_key" {
   description = "Access key for the AWS API."
+  type        = string
 }
 
 variable "aws_secret_key" {
   description = "Secret key for the AWS API."
+  type        = string
 }
 
 variable "aws_zone" {
   description = "Name of the AWS Availability Zone."
+  type        = string
   default     = "eu-central-1"
 }
 
