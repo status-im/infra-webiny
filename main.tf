@@ -29,3 +29,10 @@ terraform {
     key_file  = "ansible/files/consul-client.key"
   }
 }
+
+/* ACCESS KEY ------------------------------------------------------*/
+
+resource "aws_key_pair" "jakub" {
+  key_name   = "jakubgs"
+  public_key = file("files/jakub@status.im.rsa")
+}
