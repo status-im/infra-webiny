@@ -54,17 +54,29 @@ install-ansible-provisioner:
 init-terraform:
 	terraform init -upgrade=true
 
+consul-certs:
+	@echo "Saving Consul certificates: ansible/files/consul*"
+	pass services/consul/ca-crt > ansible/files/consul-ca.crt
+	pass services/consul/ca-key > ansible/files/consul-ca.key
+	pass services/consul/client-crt > ansible/files/consul-client.crt
+	pass services/consul/client-key > ansible/files/consul-client.key
+
 gpg-key:
 	@echo "Saving GPG key: files/webiny@status.im.gpg"
 	@pass service/Webiny/gpg/key.priv.b64 > files/webiny@status.im.gpg
 
-secrets: gpg-key
+tf-secrets:
 	@echo "Saving secrets to: terraform.tfvars"
 	@echo -e "\
 # secrets extracted from password-store\n\
+cloudflare_token   = \"$(shell pass cloud/Cloudflare/token)\"\n\
+cloudflare_email   = \"$(shell pass cloud/Cloudflare/email)\"\n\
+cloudflare_account = \"$(shell pass cloud/Cloudflare/account)\"\n\
 aws_access_key     = \"$(shell pass cloud/Dap.ps/AWS/access-key)\"\n\
 aws_secret_key     = \"$(shell pass cloud/Dap.ps/AWS/secret-key)\"\n\
 " > terraform.tfvars
+
+secrets: consul-certs gpg-key tf-secrets
 
 cleanup:
 	rm -r $(PLUGIN_DIR)/$(ARCHIVE)
