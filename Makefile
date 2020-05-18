@@ -54,8 +54,12 @@ install-ansible-provisioner:
 init-terraform:
 	terraform init -upgrade=true
 
-secrets:
-	echo "Saving secrets to: terraform.tfvars"
+gpg-key:
+	@echo "Saving GPG key: files/webiny@status.im.gpg"
+	@pass service/Webiny/gpg/key.priv.b64 > files/webiny@status.im.gpg
+
+secrets: gpg-key
+	@echo "Saving secrets to: terraform.tfvars"
 	@echo -e "\
 # secrets extracted from password-store\n\
 aws_access_key     = \"$(shell pass cloud/Dap.ps/AWS/access-key)\"\n\
