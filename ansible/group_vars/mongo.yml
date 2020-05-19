@@ -1,0 +1,60 @@
+---
+# versions
+mongodb_version: "4.0"
+# Fixes: https://github.com/ansible/ansible/issues/44970
+mongodb_pymongo_pip_version: 3.8.0
+
+# listening address & port
+mongodb_net_port: 27017
+mongodb_net_bindip: '0.0.0.0'
+
+# Security credentials
+mongodb_root_admin_name: root
+mongodb_root_admin_password: '{{lookup("passwordstore", "service/Webiny/db/root-pass")}}'
+mongodb_user_admin_name: admin
+mongodb_user_admin_password: '{{lookup("passwordstore", "service/Webiny/db/admin-pass")}}'
+mongodb_root_backup_name: backup
+mongodb_root_backup_password: '{{lookup("passwordstore", "service/Webiny/db/backup-pass")}}'
+
+mongodb_security_authorization: 'enabled'
+mongodb_users:
+  - name: '{{lookup("passwordstore", "service/Webiny/db/user-name")}}'
+    password: '{{lookup("passwordstore", "service/Webiny/db/user-pass")}}'
+    roles: readWrite
+    database: 'prod-dap-ps'
+
+# enable replication on prod
+mongodb_replication_replset: "prod-dap-ps"
+mongodb_keyfile_content: '{{lookup("passwordstore", "service/Webiny/db/keyfile returnall=true")}}'
+mongodb_oplog_users:
+  - user: oplog
+    password: '{{lookup("passwordstore", "service/Webiny/db/oplog-pass")}}'
+
+# master host
+mongodb_login_host_vars: '{{ hostvars[groups["mongo"][0]] }}'
+mongodb_login_host: '{{ mongodb_login_host_vars["dns_entry"] }}'
+
+# TODO: generate this dynamically
+mongodb_replication_params:
+  - host_name: '{{ hostvars[groups["mongo"][0]].dns_entry }}'
+  - host_name: '{{ hostvars[groups["mongo"][1]].dns_entry }}'
+  - host_name: '{{ hostvars[groups["mongo"][2]].dns_entry }}'
+
+# avoid having to auth on localhost
+mongodb_set_parameters:
+  enableLocalhostAuthBypass: "true"
+
+# backups auth
+mongodb_backup_db_name: '{{ mongodb_users[0].database }}'
+mongodb_backup_db_user: '{{ mongodb_users[0].name }}'
+mongodb_backup_db_pass: '{{ mongodb_users[0].password }}'
+
+# backup uploads to S3
+#mongodb_backup_bucket_name: 's3://{{lookup("passwordstore", "service/prod/s3/bucket-name")}}'
+#mongodb_backup_access_key: '{{lookup("passwordstore", "service/prod/s3/access-key")}}'
+#mongodb_backup_secret_key: '{{lookup("passwordstore", "service/prod/s3/secret-key")}}'
+
+# open mongo port
+open_ports_protocol: tcp
+open_ports_comment: 'MongoDB'
+open_ports_list: ['{{ mongodb_net_port }}']

@@ -1,0 +1,12 @@
+---
+- name: Configure MongoDB prod cluster
+  hosts: mongo
+  roles:
+    - { role: swap-file,        tags: swap-file }
+    - { role: open-ports,       tags: open-ports }
+    - { role: mongodb-setup,    tags: mongodb-setup }
+    #- { role: mongodb-backups,  tags: mongodb-backups }
+  post_tasks:
+    - name: MongoDB URI string
+      debug:
+        msg: 'mongodb://{{ mongodb_users[0].name }}:{{ mongodb_users[0].password }}@{{ dns_entry }}:{{ mongodb_net_port }}/{{ mongodb_users[0].database }}?replicaSet={{ mongodb_replication_replset }}'
