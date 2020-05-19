@@ -25,8 +25,8 @@ variable "aws_secret_key" {
   type        = string
 }
 
-variable "aws_zone" {
-  description = "Name of the AWS Availability Zone."
+variable "aws_region" {
+  description = "Name of the AWS Revion."
   type        = string
   default     = "eu-central-1"
 }
