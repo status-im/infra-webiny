@@ -29,5 +29,5 @@
 
 # WARNING: Fails if python3 is the default
 - name: mongodb-setup
-  src: https://github.com/UnderGreen/ansible-role-mongodb.git
+  src: git@github.com:status-im/ansible-role-mongodb.git
   scm: git
