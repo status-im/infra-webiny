@@ -4,10 +4,8 @@ This repo defines infrasctructure for [Webiny](https://www.webiny.com/) - a CMS 
 
 # Endpoints
 
-| Name | URL  |
-|------|------|
-| TODO | TODO |
-| TODO | TODO |
+There's just one endpoint: `db.get.status.im`
+It is configured via `TXT` and `SRV` DNS records as indicated in [DNS seedlist docs](https://docs.mongodb.com/manual/reference/connection-string/#connections-dns-seedlist).
 
 # Repo Usage
 
