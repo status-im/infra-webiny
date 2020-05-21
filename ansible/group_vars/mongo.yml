@@ -26,9 +26,17 @@ mongodb_users:
     password: '{{lookup("passwordstore", "service/Webiny/db/user-pass")}}'
     roles: readWrite
     database: 'webiny'
+  - name: '{{lookup("passwordstore", "service/Webiny/db/user-name")}}'
+    password: '{{lookup("passwordstore", "service/Webiny/db/user-pass")}}'
+    roles: readWrite
+    database: 'webiny-dev'
+  - name: '{{lookup("passwordstore", "service/Webiny/db/user-name")}}'
+    password: '{{lookup("passwordstore", "service/Webiny/db/user-pass")}}'
+    roles: readWrite
+    database: 'webiny-prod'
 
 # enable replication on prod
-mongodb_replication_replset: 'status-webiny'
+mongodb_replication_replset: 'webiny'
 mongodb_keyfile_content: '{{lookup("passwordstore", "service/Webiny/db/keyfile returnall=true")}}'
 mongodb_oplog_users:
   - user: oplog
