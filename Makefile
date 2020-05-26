@@ -61,10 +61,6 @@ consul-certs:
 	pass services/consul/client-crt > ansible/files/consul-client.crt
 	pass services/consul/client-key > ansible/files/consul-client.key
 
-gpg-key:
-	@echo "Saving GPG key: files/webiny@status.im.gpg"
-	@pass service/Webiny/gpg/key.priv.b64 > files/webiny@status.im.gpg
-
 tf-secrets:
 	@echo "Saving secrets to: terraform.tfvars"
 	@echo -e "\
@@ -76,7 +72,7 @@ aws_access_key     = \"$(shell pass cloud/Dap.ps/AWS/access-key)\"\n\
 aws_secret_key     = \"$(shell pass cloud/Dap.ps/AWS/secret-key)\"\n\
 " > terraform.tfvars
 
-secrets: consul-certs gpg-key tf-secrets
+secrets: consul-certs tf-secrets
 
 cleanup:
 	rm -r $(PLUGIN_DIR)/$(ARCHIVE)

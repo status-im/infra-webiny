@@ -10,5 +10,3 @@
 ansible/files/*
 
 google-cloud.json
-
-files/webiny@status.im.gpg
