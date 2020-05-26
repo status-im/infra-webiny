@@ -26,14 +26,6 @@ mongodb_users:
     password: '{{lookup("passwordstore", "service/Webiny/db/user-pass")}}'
     roles: readWrite
     database: 'webiny'
-  - name: '{{lookup("passwordstore", "service/Webiny/db/user-name")}}'
-    password: '{{lookup("passwordstore", "service/Webiny/db/user-pass")}}'
-    roles: readWrite
-    database: 'webiny-dev'
-  - name: '{{lookup("passwordstore", "service/Webiny/db/user-name")}}'
-    password: '{{lookup("passwordstore", "service/Webiny/db/user-pass")}}'
-    roles: readWrite
-    database: 'webiny-prod'
 
 # enable replication on prod
 mongodb_replication_replset: 'webiny'
