@@ -59,6 +59,6 @@ mongodb_backup_db_pass: '{{ mongodb_users[0].password }}'
 #mongodb_backup_secret_key: '{{lookup("passwordstore", "service/prod/s3/secret-key")}}'
 
 # open mongo port
-open_ports_protocol: tcp
 open_ports_comment: 'MongoDB'
-open_ports_list: ['{{ mongodb_net_port }}']
+open_ports_list:
+  - { port: '{{ mongodb_net_port }}', protocol: 'tcp' }
