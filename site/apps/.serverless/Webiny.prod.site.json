@@ -1,0 +1,21 @@
+{
+  "output": {
+    "name": "hwwt6dm_prod_site",
+    "description": "serverless-app: Webiny Site",
+    "memory": 128,
+    "timeout": 30,
+    "code": "./site/build",
+    "shims": [],
+    "handler": "handler.handler",
+    "runtime": "nodejs10.x",
+    "env": {
+      "SSR_FUNCTION": "hwwt6dm_prod_ssr",
+      "DB_PROXY_FUNCTION": "arn:aws:lambda:eu-central-1:912979228183:function:hwwt6dm_prod_dbProxy"
+    },
+    "role": {
+      "arn": "arn:aws:iam::912979228183:role/hwwt6dm-f38hj9r"
+    },
+    "arn": "arn:aws:lambda:eu-central-1:912979228183:function:hwwt6dm_prod_site",
+    "region": "eu-central-1"
+  }
+}

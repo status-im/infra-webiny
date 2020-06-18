@@ -1,0 +1,35 @@
+{
+  "output": {
+    "id": "E3PR0P6L6I8MFB",
+    "arn": "arn:aws:cloudfront::912979228183:distribution/E3PR0P6L6I8MFB",
+    "url": "https://d1anryaikli0tm.cloudfront.net",
+    "region": "us-east-1",
+    "enabled": true,
+    "comment": "",
+    "origins": [
+      {
+        "url": "https://ev53n6jfwf.execute-api.eu-central-1.amazonaws.com/prod",
+        "allowedHttpMethods": [
+          "HEAD",
+          "GET"
+        ]
+      }
+    ],
+    "defaults": {
+      "ttl": 300,
+      "allowedHttpMethods": [
+        "GET",
+        "HEAD",
+        "OPTIONS",
+        "PUT",
+        "POST",
+        "PATCH",
+        "DELETE"
+      ],
+      "forward": {
+        "queryString": true
+      }
+    },
+    "forwardIdViaHeaders": true
+  }
+}

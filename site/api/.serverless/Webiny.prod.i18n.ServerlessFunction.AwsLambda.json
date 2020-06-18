@@ -1,0 +1,18 @@
+{
+  "name": "ls1lyg7_prod_i18n_graphql",
+  "description": "GraphQL server for i18n.",
+  "memory": 512,
+  "timeout": 10,
+  "code": "/home/sochan/work/get.status.im/api/.webiny/i18N/build",
+  "shims": [],
+  "handler": "handler.handler",
+  "runtime": "nodejs10.x",
+  "env": {
+    "DEBUG": "true"
+  },
+  "role": {
+    "arn": "arn:aws:iam::912979228183:role/ls1lyg7-yk1269u"
+  },
+  "arn": "arn:aws:lambda:eu-central-1:912979228183:function:ls1lyg7_prod_i18n_graphql",
+  "region": "eu-central-1"
+}

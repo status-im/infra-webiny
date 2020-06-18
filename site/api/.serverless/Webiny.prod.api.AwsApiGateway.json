@@ -1,0 +1,33 @@
+{
+  "inputs": {
+    "stage": "prod",
+    "endpointTypes": [
+      "REGIONAL"
+    ],
+    "region": "eu-central-1",
+    "description": "Main API Gateway",
+    "endpoints": [
+      {
+        "path": "/graphql",
+        "method": "ANY",
+        "function": "arn:aws:lambda:eu-central-1:912979228183:function:ls1lyg7_prod_gateway_apollo-gateway",
+        "authorizer": null
+      }
+    ]
+  },
+  "id": "s1hsgz6kcc",
+  "endpoints": [
+    {
+      "path": "/graphql",
+      "method": "ANY",
+      "function": "arn:aws:lambda:eu-central-1:912979228183:function:ls1lyg7_prod_gateway_apollo-gateway",
+      "authorizer": null,
+      "url": "https://s1hsgz6kcc.execute-api.eu-central-1.amazonaws.com/prod/graphql",
+      "id": "d3sbmo"
+    }
+  ],
+  "name": "ls1lyg7_prod_api",
+  "region": "eu-central-1",
+  "stage": "prod",
+  "url": "https://s1hsgz6kcc.execute-api.eu-central-1.amazonaws.com/prod"
+}

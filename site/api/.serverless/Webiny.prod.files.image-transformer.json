@@ -1,0 +1,20 @@
+{
+  "output": {
+    "name": "ls1lyg7_prod_files_image-transformer",
+    "description": "Performs image optimization, resizing, etc.",
+    "memory": 1600,
+    "timeout": 30,
+    "code": "/home/sochan/work/get.status.im/node_modules/@webiny/serverless-files/functions/imageTransformer",
+    "shims": [],
+    "handler": "handler.handler",
+    "runtime": "nodejs10.x",
+    "env": {
+      "S3_BUCKET": "webiny-files-97d6a5f6"
+    },
+    "role": {
+      "arn": "arn:aws:iam::912979228183:role/ls1lyg7-q1vvm7q"
+    },
+    "arn": "arn:aws:lambda:eu-central-1:912979228183:function:ls1lyg7_prod_files_image-transformer",
+    "region": "eu-central-1"
+  }
+}

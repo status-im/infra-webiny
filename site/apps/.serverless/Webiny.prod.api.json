@@ -1,0 +1,41 @@
+{
+  "output": {
+    "name": "hwwt6dm_prod_api",
+    "id": "ev53n6jfwf",
+    "endpoints": [
+      {
+        "path": "/admin/{key+}",
+        "method": "GET",
+        "function": "arn:aws:lambda:eu-central-1:912979228183:function:hwwt6dm_prod_admin",
+        "authorizer": null,
+        "url": "https://ev53n6jfwf.execute-api.eu-central-1.amazonaws.com/prod/admin/{key+}",
+        "id": "i6hvx2"
+      },
+      {
+        "path": "/admin",
+        "method": "GET",
+        "function": "arn:aws:lambda:eu-central-1:912979228183:function:hwwt6dm_prod_admin",
+        "authorizer": null,
+        "url": "https://ev53n6jfwf.execute-api.eu-central-1.amazonaws.com/prod/admin",
+        "id": "df4gck"
+      },
+      {
+        "path": "/{key+}",
+        "method": "ANY",
+        "function": "arn:aws:lambda:eu-central-1:912979228183:function:hwwt6dm_prod_site",
+        "authorizer": null,
+        "url": "https://ev53n6jfwf.execute-api.eu-central-1.amazonaws.com/prod/{key+}",
+        "id": "iy7tpm"
+      },
+      {
+        "path": "/",
+        "method": "ANY",
+        "function": "arn:aws:lambda:eu-central-1:912979228183:function:hwwt6dm_prod_site",
+        "authorizer": null,
+        "url": "https://ev53n6jfwf.execute-api.eu-central-1.amazonaws.com/prod/",
+        "id": "0pur9gevx0"
+      }
+    ],
+    "url": "https://ev53n6jfwf.execute-api.eu-central-1.amazonaws.com/prod"
+  }
+}

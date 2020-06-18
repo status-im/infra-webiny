@@ -1,0 +1,50 @@
+{
+  "inputs": {
+    "stage": "prod",
+    "endpointTypes": [
+      "REGIONAL"
+    ],
+    "region": "eu-central-1",
+    "description": "API for files",
+    "binaryMediaTypes": [
+      "*/*"
+    ],
+    "endpoints": [
+      {
+        "path": "/graphql",
+        "method": "ANY",
+        "function": "arn:aws:lambda:eu-central-1:912979228183:function:ls1lyg7_prod_files_graphql",
+        "authorizer": null
+      },
+      {
+        "path": "/files/{path}",
+        "method": "ANY",
+        "function": "arn:aws:lambda:eu-central-1:912979228183:function:ls1lyg7_prod_files_download-files",
+        "authorizer": null
+      }
+    ]
+  },
+  "id": "r6sevmttmg",
+  "endpoints": [
+    {
+      "path": "/graphql",
+      "method": "ANY",
+      "function": "arn:aws:lambda:eu-central-1:912979228183:function:ls1lyg7_prod_files_graphql",
+      "authorizer": null,
+      "url": "https://r6sevmttmg.execute-api.eu-central-1.amazonaws.com/prod/graphql",
+      "id": "s7a8bg"
+    },
+    {
+      "path": "/files/{path}",
+      "method": "ANY",
+      "function": "arn:aws:lambda:eu-central-1:912979228183:function:ls1lyg7_prod_files_download-files",
+      "authorizer": null,
+      "url": "https://r6sevmttmg.execute-api.eu-central-1.amazonaws.com/prod/files/{path}",
+      "id": "jtgui3"
+    }
+  ],
+  "name": "ls1lyg7_prod_files",
+  "region": "eu-central-1",
+  "stage": "prod",
+  "url": "https://r6sevmttmg.execute-api.eu-central-1.amazonaws.com/prod"
+}

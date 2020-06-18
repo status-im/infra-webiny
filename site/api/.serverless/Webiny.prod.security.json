@@ -1,0 +1,76 @@
+{
+  "inputs": {
+    "region": "eu-central-1",
+    "memory": 512,
+    "debug": "true",
+    "plugins": [
+      {
+        "factory": "@webiny/api-plugin-create-apollo-handler",
+        "options": {
+          "server": {
+            "introspection": "true",
+            "playground": "true"
+          }
+        }
+      },
+      {
+        "factory": "@webiny/api-plugin-commodo-db-proxy",
+        "options": {
+          "functionArn": "arn:aws:lambda:eu-central-1:912979228183:function:ls1lyg7_prod_dbProxy"
+        }
+      },
+      {
+        "factory": "@webiny/api-security/plugins",
+        "options": {
+          "token": {
+            "expiresIn": 2592000,
+            "secret": "Abp06Pmu70F3MS5Gcam6bQvQNZi7uDnJjV5kXE4PWjwMlpeFmJoQFKXbRgbE"
+          }
+        }
+      },
+      {
+        "factory": "@webiny/api-plugin-security-cognito",
+        "options": {
+          "region": "eu-central-1",
+          "userPoolId": "eu-central-1_QoCYKyNbT"
+        }
+      }
+    ]
+  },
+  "output": {
+    "api": {
+      "name": "ls1lyg7_prod_security",
+      "id": "6krmocfvrg",
+      "endpoints": [
+        {
+          "path": "/graphql",
+          "method": "ANY",
+          "function": "arn:aws:lambda:eu-central-1:912979228183:function:ls1lyg7_prod_security_graphql",
+          "authorizer": null,
+          "url": "https://6krmocfvrg.execute-api.eu-central-1.amazonaws.com/prod/graphql",
+          "id": "l2ihv5"
+        }
+      ],
+      "url": "https://6krmocfvrg.execute-api.eu-central-1.amazonaws.com/prod",
+      "graphqlUrl": "https://6krmocfvrg.execute-api.eu-central-1.amazonaws.com/prod/graphql"
+    },
+    "graphql": {
+      "name": "ls1lyg7_prod_security_graphql",
+      "description": "GraphQL server for security.",
+      "memory": 512,
+      "timeout": 10,
+      "code": "/home/sochan/work/get.status.im/api/.webiny/security/build",
+      "shims": [],
+      "handler": "handler.handler",
+      "runtime": "nodejs10.x",
+      "env": {
+        "DEBUG": "true"
+      },
+      "role": {
+        "arn": "arn:aws:iam::912979228183:role/ls1lyg7-rq7jox"
+      },
+      "arn": "arn:aws:lambda:eu-central-1:912979228183:function:ls1lyg7_prod_security_graphql",
+      "region": "eu-central-1"
+    }
+  }
+}

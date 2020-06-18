@@ -1,0 +1,20 @@
+{
+  "output": {
+    "name": "ls1lyg7_prod_gateway_apollo-gateway",
+    "description": "Apollo GraphQL Gateway (API entry point).",
+    "memory": 512,
+    "timeout": 30,
+    "code": "/home/sochan/work/get.status.im/api/.webiny/gateway/build",
+    "shims": [],
+    "handler": "handler.handler",
+    "runtime": "nodejs10.x",
+    "env": {
+      "DEBUG": "true"
+    },
+    "role": {
+      "arn": "arn:aws:iam::912979228183:role/ls1lyg7-8vp9p73"
+    },
+    "arn": "arn:aws:lambda:eu-central-1:912979228183:function:ls1lyg7_prod_gateway_apollo-gateway",
+    "region": "eu-central-1"
+  }
+}

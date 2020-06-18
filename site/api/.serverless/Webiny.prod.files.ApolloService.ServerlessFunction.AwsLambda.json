@@ -1,0 +1,21 @@
+{
+  "name": "ls1lyg7_prod_files_graphql",
+  "description": "GraphQL server for files.",
+  "memory": 512,
+  "timeout": 30,
+  "code": "/home/sochan/work/get.status.im/api/.webiny/files/build",
+  "shims": [],
+  "handler": "handler.handler",
+  "runtime": "nodejs10.x",
+  "env": {
+    "S3_BUCKET": "webiny-files-97d6a5f6",
+    "DEBUG": "true",
+    "UPLOAD_MIN_FILE_SIZE": "0",
+    "UPLOAD_MAX_FILE_SIZE": "26214400"
+  },
+  "role": {
+    "arn": "arn:aws:iam::912979228183:role/ls1lyg7-e0uvfq"
+  },
+  "arn": "arn:aws:lambda:eu-central-1:912979228183:function:ls1lyg7_prod_files_graphql",
+  "region": "eu-central-1"
+}

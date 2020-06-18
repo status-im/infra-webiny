@@ -1,0 +1,17 @@
+{
+  "output": {
+    "name": "ls1lyg7_prod_security",
+    "id": "6krmocfvrg",
+    "endpoints": [
+      {
+        "path": "/graphql",
+        "method": "ANY",
+        "function": "arn:aws:lambda:eu-central-1:912979228183:function:ls1lyg7_prod_security_graphql",
+        "authorizer": null,
+        "url": "https://6krmocfvrg.execute-api.eu-central-1.amazonaws.com/prod/graphql",
+        "id": "l2ihv5"
+      }
+    ],
+    "url": "https://6krmocfvrg.execute-api.eu-central-1.amazonaws.com/prod"
+  }
+}

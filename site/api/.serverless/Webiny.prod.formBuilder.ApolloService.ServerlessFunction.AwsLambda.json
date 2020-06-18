@@ -1,0 +1,20 @@
+{
+  "name": "ls1lyg7_prod_formBuilder_graphql",
+  "description": "GraphQL server for formBuilder.",
+  "memory": 512,
+  "timeout": 30,
+  "code": "/home/sochan/work/get.status.im/api/.webiny/formBuilder/build",
+  "shims": [],
+  "handler": "handler.handler",
+  "runtime": "nodejs10.x",
+  "env": {
+    "FILES_API_URL": "https://r6sevmttmg.execute-api.eu-central-1.amazonaws.com/prod/graphql",
+    "I18N_API_URL": "https://rrm1owo7ka.execute-api.eu-central-1.amazonaws.com/prod/graphql",
+    "DEBUG": "true"
+  },
+  "role": {
+    "arn": "arn:aws:iam::912979228183:role/ls1lyg7-n9exca"
+  },
+  "arn": "arn:aws:lambda:eu-central-1:912979228183:function:ls1lyg7_prod_formBuilder_graphql",
+  "region": "eu-central-1"
+}

@@ -1,0 +1,22 @@
+{
+  "output": {
+    "name": "hwwt6dm_prod_dbProxy",
+    "description": "Proxies DB commands.",
+    "memory": 512,
+    "timeout": 30,
+    "code": "/home/sochan/work/get.status.im/node_modules/@webiny/serverless-db-proxy",
+    "shims": [],
+    "handler": "handler.handler",
+    "runtime": "nodejs10.x",
+    "env": {
+      "MONGODB_SERVER": "mongodb+srv://webiny:c4U5LQ1spX337iQh@db.get.status.im/webiny?ssl=false",
+      "MONGODB_NAME": "webiny"
+    },
+    "role": {
+      "arn": "arn:aws:iam::912979228183:role/hwwt6dm-s4qtg4"
+    },
+    "arn": "arn:aws:lambda:eu-central-1:912979228183:function:hwwt6dm_prod_dbProxy",
+    "region": "eu-central-1",
+    "concurrencyLimit": 15
+  }
+}

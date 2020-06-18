@@ -1,0 +1,34 @@
+{
+  "inputs": {
+    "stage": "prod",
+    "endpointTypes": [
+      "REGIONAL"
+    ],
+    "region": "eu-central-1",
+    "description": "API for pageBuilder",
+    "binaryMediaTypes": [],
+    "endpoints": [
+      {
+        "path": "/graphql",
+        "method": "ANY",
+        "function": "arn:aws:lambda:eu-central-1:912979228183:function:ls1lyg7_prod_pageBuilder_graphql",
+        "authorizer": null
+      }
+    ]
+  },
+  "id": "mtzh98j3g3",
+  "endpoints": [
+    {
+      "path": "/graphql",
+      "method": "ANY",
+      "function": "arn:aws:lambda:eu-central-1:912979228183:function:ls1lyg7_prod_pageBuilder_graphql",
+      "authorizer": null,
+      "url": "https://mtzh98j3g3.execute-api.eu-central-1.amazonaws.com/prod/graphql",
+      "id": "4ns59q"
+    }
+  ],
+  "name": "ls1lyg7_prod_pageBuilder",
+  "region": "eu-central-1",
+  "stage": "prod",
+  "url": "https://mtzh98j3g3.execute-api.eu-central-1.amazonaws.com/prod"
+}

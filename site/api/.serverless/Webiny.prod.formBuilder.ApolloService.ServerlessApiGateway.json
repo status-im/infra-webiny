@@ -1,0 +1,17 @@
+{
+  "output": {
+    "name": "ls1lyg7_prod_formBuilder",
+    "id": "j0mbdytfh6",
+    "endpoints": [
+      {
+        "path": "/graphql",
+        "method": "ANY",
+        "function": "arn:aws:lambda:eu-central-1:912979228183:function:ls1lyg7_prod_formBuilder_graphql",
+        "authorizer": null,
+        "url": "https://j0mbdytfh6.execute-api.eu-central-1.amazonaws.com/prod/graphql",
+        "id": "0iof4w"
+      }
+    ],
+    "url": "https://j0mbdytfh6.execute-api.eu-central-1.amazonaws.com/prod"
+  }
+}

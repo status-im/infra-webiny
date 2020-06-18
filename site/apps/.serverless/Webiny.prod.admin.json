@@ -1,0 +1,18 @@
+{
+  "output": {
+    "name": "hwwt6dm_prod_admin",
+    "description": "serverless-app: Webiny Admin",
+    "memory": 512,
+    "timeout": 10,
+    "code": "admin/build",
+    "shims": [],
+    "handler": "handler.handler",
+    "runtime": "nodejs10.x",
+    "env": {},
+    "role": {
+      "arn": "arn:aws:iam::912979228183:role/hwwt6dm-c0k4i1f"
+    },
+    "arn": "arn:aws:lambda:eu-central-1:912979228183:function:hwwt6dm_prod_admin",
+    "region": "eu-central-1"
+  }
+}

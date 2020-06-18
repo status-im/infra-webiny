@@ -1,0 +1,20 @@
+{
+  "output": {
+    "name": "ls1lyg7_prod_files_manage-files",
+    "description": "Triggered once a file was deleted.",
+    "memory": 512,
+    "timeout": 10,
+    "code": "/home/sochan/work/get.status.im/node_modules/@webiny/serverless-files/functions/manageFiles",
+    "shims": [],
+    "handler": "handler.handler",
+    "runtime": "nodejs10.x",
+    "env": {
+      "S3_BUCKET": "webiny-files-97d6a5f6"
+    },
+    "role": {
+      "arn": "arn:aws:iam::912979228183:role/ls1lyg7-ce25p7x"
+    },
+    "arn": "arn:aws:lambda:eu-central-1:912979228183:function:ls1lyg7_prod_files_manage-files",
+    "region": "eu-central-1"
+  }
+}

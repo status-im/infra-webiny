@@ -1,0 +1,41 @@
+{
+  "output": {
+    "api": {
+      "name": "ls1lyg7_prod_pageBuilder",
+      "id": "mtzh98j3g3",
+      "endpoints": [
+        {
+          "path": "/graphql",
+          "method": "ANY",
+          "function": "arn:aws:lambda:eu-central-1:912979228183:function:ls1lyg7_prod_pageBuilder_graphql",
+          "authorizer": null,
+          "url": "https://mtzh98j3g3.execute-api.eu-central-1.amazonaws.com/prod/graphql",
+          "id": "4ns59q"
+        }
+      ],
+      "url": "https://mtzh98j3g3.execute-api.eu-central-1.amazonaws.com/prod",
+      "graphqlUrl": "https://mtzh98j3g3.execute-api.eu-central-1.amazonaws.com/prod/graphql"
+    },
+    "graphql": {
+      "name": "ls1lyg7_prod_pageBuilder_graphql",
+      "description": "GraphQL server for pageBuilder.",
+      "memory": 512,
+      "timeout": 30,
+      "code": "/home/sochan/work/get.status.im/api/.webiny/pageBuilder/build",
+      "shims": [],
+      "handler": "handler.handler",
+      "runtime": "nodejs10.x",
+      "env": {
+        "FILES_API_URL": "https://r6sevmttmg.execute-api.eu-central-1.amazonaws.com/prod/graphql",
+        "PAGE_BUILDER_S3_BUCKET": "webiny-serverless-page-builder-ls1lyg7",
+        "PAGE_BUILDER_INSTALLATION_FILES_ZIP_KEY": "page_builder_installation_files.zip",
+        "DEBUG": "true"
+      },
+      "role": {
+        "arn": "arn:aws:iam::912979228183:role/ls1lyg7-736obgs"
+      },
+      "arn": "arn:aws:lambda:eu-central-1:912979228183:function:ls1lyg7_prod_pageBuilder_graphql",
+      "region": "eu-central-1"
+    }
+  }
+}

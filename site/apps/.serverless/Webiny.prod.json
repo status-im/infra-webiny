@@ -1,0 +1,155 @@
+{
+  "components": {
+    "dbProxy": "/home/sochan/work/get.status.im/node_modules/@webiny/serverless-db-proxy/serverless.js",
+    "site": "/home/sochan/work/get.status.im/node_modules/@webiny/serverless-app/serverless.js",
+    "ssr": "/home/sochan/work/get.status.im/node_modules/@webiny/serverless-function/serverless.js",
+    "admin": "/home/sochan/work/get.status.im/node_modules/@webiny/serverless-app/serverless.js",
+    "api": "/home/sochan/work/get.status.im/node_modules/@webiny/serverless-api-gateway/serverless.js",
+    "cdn": "/home/sochan/work/get.status.im/node_modules/@webiny/serverless-aws-cloudfront/serverless.js"
+  },
+  "outputs": {
+    "dbProxy": {
+      "name": "hwwt6dm_prod_dbProxy",
+      "description": "Proxies DB commands.",
+      "memory": 512,
+      "timeout": 30,
+      "code": "/home/sochan/work/get.status.im/node_modules/@webiny/serverless-db-proxy",
+      "shims": [],
+      "handler": "handler.handler",
+      "runtime": "nodejs10.x",
+      "env": {
+        "MONGODB_SERVER": "mongodb+srv://webiny:c4U5LQ1spX337iQh@db.get.status.im/webiny?ssl=false",
+        "MONGODB_NAME": "webiny"
+      },
+      "role": {
+        "arn": "arn:aws:iam::912979228183:role/hwwt6dm-s4qtg4"
+      },
+      "arn": "arn:aws:lambda:eu-central-1:912979228183:function:hwwt6dm_prod_dbProxy",
+      "region": "eu-central-1",
+      "concurrencyLimit": 15
+    },
+    "site": {
+      "name": "hwwt6dm_prod_site",
+      "description": "serverless-app: Webiny Site",
+      "memory": 128,
+      "timeout": 30,
+      "code": "./site/build",
+      "shims": [],
+      "handler": "handler.handler",
+      "runtime": "nodejs10.x",
+      "env": {
+        "SSR_FUNCTION": "hwwt6dm_prod_ssr",
+        "DB_PROXY_FUNCTION": "arn:aws:lambda:eu-central-1:912979228183:function:hwwt6dm_prod_dbProxy"
+      },
+      "role": {
+        "arn": "arn:aws:iam::912979228183:role/hwwt6dm-f38hj9r"
+      },
+      "arn": "arn:aws:lambda:eu-central-1:912979228183:function:hwwt6dm_prod_site",
+      "region": "eu-central-1"
+    },
+    "ssr": {
+      "name": "hwwt6dm_prod_ssr",
+      "description": "Site SSR",
+      "memory": 2048,
+      "timeout": 60,
+      "code": "./site/build-ssr",
+      "shims": [],
+      "handler": "handler.handler",
+      "runtime": "nodejs10.x",
+      "env": {},
+      "role": {
+        "arn": "arn:aws:iam::912979228183:role/hwwt6dm-sepuh3q"
+      },
+      "arn": "arn:aws:lambda:eu-central-1:912979228183:function:hwwt6dm_prod_ssr",
+      "region": "eu-central-1"
+    },
+    "admin": {
+      "name": "hwwt6dm_prod_admin",
+      "description": "serverless-app: Webiny Admin",
+      "memory": 512,
+      "timeout": 10,
+      "code": "admin/build",
+      "shims": [],
+      "handler": "handler.handler",
+      "runtime": "nodejs10.x",
+      "env": {},
+      "role": {
+        "arn": "arn:aws:iam::912979228183:role/hwwt6dm-c0k4i1f"
+      },
+      "arn": "arn:aws:lambda:eu-central-1:912979228183:function:hwwt6dm_prod_admin",
+      "region": "eu-central-1"
+    },
+    "api": {
+      "name": "hwwt6dm_prod_api",
+      "id": "ev53n6jfwf",
+      "endpoints": [
+        {
+          "path": "/admin/{key+}",
+          "method": "GET",
+          "function": "arn:aws:lambda:eu-central-1:912979228183:function:hwwt6dm_prod_admin",
+          "authorizer": null,
+          "url": "https://ev53n6jfwf.execute-api.eu-central-1.amazonaws.com/prod/admin/{key+}",
+          "id": "i6hvx2"
+        },
+        {
+          "path": "/admin",
+          "method": "GET",
+          "function": "arn:aws:lambda:eu-central-1:912979228183:function:hwwt6dm_prod_admin",
+          "authorizer": null,
+          "url": "https://ev53n6jfwf.execute-api.eu-central-1.amazonaws.com/prod/admin",
+          "id": "df4gck"
+        },
+        {
+          "path": "/{key+}",
+          "method": "ANY",
+          "function": "arn:aws:lambda:eu-central-1:912979228183:function:hwwt6dm_prod_site",
+          "authorizer": null,
+          "url": "https://ev53n6jfwf.execute-api.eu-central-1.amazonaws.com/prod/{key+}",
+          "id": "iy7tpm"
+        },
+        {
+          "path": "/",
+          "method": "ANY",
+          "function": "arn:aws:lambda:eu-central-1:912979228183:function:hwwt6dm_prod_site",
+          "authorizer": null,
+          "url": "https://ev53n6jfwf.execute-api.eu-central-1.amazonaws.com/prod/",
+          "id": "0pur9gevx0"
+        }
+      ],
+      "url": "https://ev53n6jfwf.execute-api.eu-central-1.amazonaws.com/prod"
+    },
+    "cdn": {
+      "id": "E3PR0P6L6I8MFB",
+      "arn": "arn:aws:cloudfront::912979228183:distribution/E3PR0P6L6I8MFB",
+      "url": "https://d1anryaikli0tm.cloudfront.net",
+      "region": "us-east-1",
+      "enabled": true,
+      "comment": "",
+      "origins": [
+        {
+          "url": "https://ev53n6jfwf.execute-api.eu-central-1.amazonaws.com/prod",
+          "allowedHttpMethods": [
+            "HEAD",
+            "GET"
+          ]
+        }
+      ],
+      "defaults": {
+        "ttl": 300,
+        "allowedHttpMethods": [
+          "GET",
+          "HEAD",
+          "OPTIONS",
+          "PUT",
+          "POST",
+          "PATCH",
+          "DELETE"
+        ],
+        "forward": {
+          "queryString": true
+        }
+      },
+      "forwardIdViaHeaders": true
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "hwwt6dm_prod_ssr",
+  "description": "Site SSR",
+  "memory": 2048,
+  "timeout": 60,
+  "code": "./site/build-ssr",
+  "shims": [],
+  "handler": "handler.handler",
+  "runtime": "nodejs10.x",
+  "env": {},
+  "role": {
+    "arn": "arn:aws:iam::912979228183:role/hwwt6dm-sepuh3q"
+  },
+  "arn": "arn:aws:lambda:eu-central-1:912979228183:function:hwwt6dm_prod_ssr",
+  "region": "eu-central-1"
+}
